@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" fill="none" role="img" aria-label="Baby milestone journey illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0f3"/>
+      <stop offset="100%" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <linearGradient id="path-g" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f93d6f" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.25"/>
+    </linearGradient>
+    <linearGradient id="dot-g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f93d6f"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="card-g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffc2d4"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="380" rx="20" fill="url(#bg)"/>
+
+  <!-- Soft bg blobs -->
+  <circle cx="520" cy="60"  r="90" fill="#ffc2d4" opacity="0.12"/>
+  <circle cx="80"  cy="300" r="70" fill="#c4b5fd" opacity="0.12"/>
+  <circle cx="300" cy="380" r="80" fill="#bbf7d2" opacity="0.10"/>
+
+  <!-- Milestone path (dashed) -->
+  <path d="M 60 310 C 160 290 180 200 260 170 S 380 130 440 155 S 530 190 560 170"
+        stroke="url(#path-g)" stroke-width="4" stroke-dasharray="10 6" fill="none"
+        stroke-linecap="round"/>
+
+  <!-- Milestone 1 — 1 month -->
+  <circle cx="60" cy="310" r="16" fill="url(#dot-g)" opacity="0.85"/>
+  <circle cx="60" cy="310" r="9"  fill="white"/>
+  <text x="60" y="340" text-anchor="middle" fill="#9ca3af" font-size="12"
+        font-family="system-ui,sans-serif" font-weight="600">1m</text>
+
+  <!-- Milestone 2 — 6 months -->
+  <circle cx="200" cy="220" r="16" fill="url(#dot-g)" opacity="0.85"/>
+  <circle cx="200" cy="220" r="9"  fill="white"/>
+  <text x="200" y="250" text-anchor="middle" fill="#9ca3af" font-size="12"
+        font-family="system-ui,sans-serif" font-weight="600">6m</text>
+
+  <!-- Milestone 3 — 12 months (highlighted) -->
+  <circle cx="330" cy="155" r="22" fill="url(#dot-g)"/>
+  <circle cx="330" cy="155" r="13" fill="white"/>
+  <text x="330" y="189" text-anchor="middle" fill="#9ca3af" font-size="12"
+        font-family="system-ui,sans-serif" font-weight="600">12m</text>
+
+  <!-- Milestone 4 — 18 months -->
+  <circle cx="460" cy="165" r="16" fill="url(#dot-g)" opacity="0.85"/>
+  <circle cx="460" cy="165" r="9"  fill="white"/>
+  <text x="460" y="196" text-anchor="middle" fill="#9ca3af" font-size="12"
+        font-family="system-ui,sans-serif" font-weight="600">18m</text>
+
+  <!-- Milestone 5 — 24 months -->
+  <circle cx="555" cy="175" r="16" fill="url(#dot-g)" opacity="0.85"/>
+  <circle cx="555" cy="175" r="9"  fill="white"/>
+  <text x="555" y="207" text-anchor="middle" fill="#9ca3af" font-size="12"
+        font-family="system-ui,sans-serif" font-weight="600">24m</text>
+
+  <!-- Central milestone card -->
+  <rect x="240" y="48" width="180" height="90" rx="16" fill="url(#card-g)" opacity="0.9"/>
+  <rect x="252" y="62" width="100" height="8" rx="4" fill="white" opacity="0.7"/>
+  <rect x="252" y="78" width="130" height="6" rx="3" fill="white" opacity="0.5"/>
+  <rect x="252" y="92" width="115" height="6" rx="3" fill="white" opacity="0.5"/>
+  <rect x="252" y="106" width="80" height="20" rx="10" fill="white" opacity="0.8"/>
+  <text x="292" y="121" text-anchor="middle" fill="#f93d6f" font-size="10"
+        font-family="system-ui,sans-serif" font-weight="700">View Report</text>
+
+  <!-- Decorative sparkles -->
+  <path d="M 130 120 L 133 112 L 136 120 L 144 120 L 137 125 L 140 133 L 133 128 L 126 133 L 129 125 L 122 120 Z"
+        fill="#fde047" opacity="0.55"/>
+  <path d="M 475 85 L 477 79 L 479 85 L 485 85 L 480 88 L 482 95 L 477 91 L 472 95 L 474 88 L 469 85 Z"
+        fill="#86efac" opacity="0.6"/>
+  <path d="M 90 195 L 92 189 L 94 195 L 100 195 L 95 199 L 97 205 L 92 201 L 87 205 L 89 199 L 84 195 Z"
+        fill="#a78bfa" opacity="0.5"/>
+  <circle cx="510" cy="110" r="5" fill="#ffc2d4" opacity="0.6"/>
+  <circle cx="170" cy="155" r="4" fill="#bbf7d2" opacity="0.7"/>
+  <circle cx="390" cy="95"  r="6" fill="#bae6fd" opacity="0.6"/>
+</svg>

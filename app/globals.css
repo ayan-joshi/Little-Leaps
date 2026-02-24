@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+:root {
+  --font-nunito: 'Nunito', system-ui, sans-serif;
+  --font-pacifico: 'Pacifico', cursive;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply font-sans text-gray-700 antialiased;
+    background-color: #fef9f0;
+  }
+
+  h1, h2, h3, h4 {
+    @apply text-gray-800;
+  }
+}
+
+@layer components {
+  /* Accessible focus rings */
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-blush-400 focus-visible:ring-offset-2;
+  }
+
+  /* Pastel card base */
+  .card-base {
+    @apply bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+
+  /* Large tap target helper */
+  .tap-target {
+    @apply min-h-[48px] min-w-[48px];
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blush-500 to-lavender-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Smooth page transition */
+@layer utilities {
+  .page-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  .section-padding {
+    @apply py-12 sm:py-16 lg:py-20;
+  }
+}

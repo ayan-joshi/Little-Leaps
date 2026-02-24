@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none" role="img" aria-label="Award placeholder">
+  <defs>
+    <linearGradient id="abg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff0f3"/>
+      <stop offset="100%" stop-color="#f5f3ff"/>
+    </linearGradient>
+    <linearGradient id="trophy" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f93d6f"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="ribbon" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffc2d4"/>
+      <stop offset="100%" stop-color="#c4b5fd"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="300" fill="url(#abg)"/>
+
+  <!-- Background circles -->
+  <circle cx="340" cy="50"  r="80" fill="#ffc2d4" opacity="0.12"/>
+  <circle cx="60"  cy="250" r="60" fill="#c4b5fd" opacity="0.12"/>
+
+  <!-- Trophy base -->
+  <rect x="183" y="226" width="34" height="16" rx="4" fill="url(#trophy)" opacity="0.8"/>
+  <rect x="168" y="238" width="64" height="12" rx="6" fill="url(#trophy)" opacity="0.9"/>
+
+  <!-- Trophy stem -->
+  <rect x="193" y="200" width="14" height="30" rx="4" fill="url(#trophy)" opacity="0.7"/>
+
+  <!-- Trophy cup body -->
+  <path d="M 150 100 L 155 196 Q 200 212 245 196 L 250 100 Z"
+        fill="url(#trophy)" opacity="0.9"/>
+
+  <!-- Trophy cup highlights -->
+  <path d="M 165 115 L 167 180 Q 185 190 200 188" stroke="white"
+        stroke-width="2" stroke-linecap="round" opacity="0.3"/>
+
+  <!-- Trophy handles -->
+  <path d="M 150 120 Q 128 130 130 155 Q 132 175 150 175"
+        stroke="url(#trophy)" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.7"/>
+  <path d="M 250 120 Q 272 130 270 155 Q 268 175 250 175"
+        stroke="url(#trophy)" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.7"/>
+
+  <!-- Star on trophy -->
+  <path d="M 200 118 L 207 138 L 228 138 L 212 150 L 218 170 L 200 158 L 182 170 L 188 150 L 172 138 L 193 138 Z"
+        fill="white" opacity="0.9"/>
+
+  <!-- Ribbon circle -->
+  <circle cx="200" cy="68" r="36" fill="url(#ribbon)" opacity="0.85"/>
+  <circle cx="200" cy="68" r="28" fill="white" opacity="0.7"/>
+  <circle cx="200" cy="68" r="20" fill="url(#ribbon)" opacity="0.5"/>
+
+  <!-- Sparkles -->
+  <path d="M 120 72 L 122 65 L 124 72 L 131 72 L 125 76 L 128 84 L 122 79 L 116 84 L 119 76 L 113 72 Z"
+        fill="#fde047" opacity="0.6"/>
+  <path d="M 272 58 L 274 52 L 276 58 L 282 58 L 277 62 L 279 68 L 274 64 L 269 68 L 271 62 L 266 58 Z"
+        fill="#86efac" opacity="0.6"/>
+  <circle cx="134" cy="195" r="5" fill="#ffc2d4" opacity="0.5"/>
+  <circle cx="266" cy="200" r="4" fill="#c4b5fd" opacity="0.5"/>
+</svg>

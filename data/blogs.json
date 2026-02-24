@@ -1,0 +1,110 @@
+[
+  {
+    "id": "blog-001",
+    "slug": "understanding-baby-milestones-0-6-months",
+    "title": "Understanding Baby Milestones: 0–6 Months Guide",
+    "excerpt": "Every baby develops at their own pace, but knowing the key developmental milestones in the first six months helps parents know what to look for and when to celebrate.",
+    "content": "placeholder",
+    "category": "Development",
+    "tags": ["milestones", "newborn", "development", "0-6 months"],
+    "author": {
+      "name": "Dr. Sarah Mitchell",
+      "role": "Paediatric Specialist",
+      "avatar": "/images/authors/sarah-mitchell.png"
+    },
+    "publishedAt": "2025-11-10T10:00:00Z",
+    "readingTime": 6,
+    "image": "/images/blogs/milestones-0-6.png",
+    "featured": true
+  },
+  {
+    "id": "blog-002",
+    "slug": "tummy-time-benefits-and-tips",
+    "title": "Tummy Time: Benefits, Tips, and How to Make It Fun",
+    "excerpt": "Tummy time is one of the most important activities for your newborn's development. Learn why it matters and how to make your baby love it.",
+    "content": "placeholder",
+    "category": "Activities",
+    "tags": ["tummy time", "gross motor", "newborn", "tips"],
+    "author": {
+      "name": "Emma Clarke",
+      "role": "Paediatric Physiotherapist",
+      "avatar": "/images/authors/emma-clarke.png"
+    },
+    "publishedAt": "2025-11-18T09:00:00Z",
+    "readingTime": 5,
+    "image": "/images/blogs/tummy-time.png",
+    "featured": false
+  },
+  {
+    "id": "blog-003",
+    "slug": "language-development-talking-to-your-baby",
+    "title": "Language Development: How Talking to Your Baby Shapes Their Future",
+    "excerpt": "Research shows that the number of words a baby hears in their first years directly impacts their language and cognitive development. Here's how to make every word count.",
+    "content": "placeholder",
+    "category": "Language",
+    "tags": ["language", "speech", "communication", "cognitive"],
+    "author": {
+      "name": "Dr. James Okafor",
+      "role": "Speech & Language Therapist",
+      "avatar": "/images/authors/james-okafor.png"
+    },
+    "publishedAt": "2025-12-01T08:30:00Z",
+    "readingTime": 7,
+    "image": "/images/blogs/language-development.png",
+    "featured": true
+  },
+  {
+    "id": "blog-004",
+    "slug": "celebrating-milestones-why-it-matters",
+    "title": "Why Celebrating Baby Milestones Matters More Than You Think",
+    "excerpt": "Milestone celebrations aren't just for parents — they reinforce positive development patterns, build confidence, and create lifelong memories for the whole family.",
+    "content": "placeholder",
+    "category": "Parenting",
+    "tags": ["milestones", "celebration", "parenting", "memory"],
+    "author": {
+      "name": "Lily Nguyen",
+      "role": "Child Psychologist",
+      "avatar": "/images/authors/lily-nguyen.png"
+    },
+    "publishedAt": "2025-12-10T11:00:00Z",
+    "readingTime": 4,
+    "image": "/images/blogs/celebrate-milestones.png",
+    "featured": false
+  },
+  {
+    "id": "blog-005",
+    "slug": "fine-motor-skills-activities-6-12-months",
+    "title": "10 Fun Activities to Boost Fine Motor Skills (6–12 Months)",
+    "excerpt": "Pinching, grasping, and pointing — fine motor skills are developing rapidly in the second half of baby's first year. These activities make development feel like play.",
+    "content": "placeholder",
+    "category": "Activities",
+    "tags": ["fine motor", "activities", "play", "6-12 months"],
+    "author": {
+      "name": "Emma Clarke",
+      "role": "Paediatric Physiotherapist",
+      "avatar": "/images/authors/emma-clarke.png"
+    },
+    "publishedAt": "2025-12-20T10:00:00Z",
+    "readingTime": 8,
+    "image": "/images/blogs/fine-motor-activities.png",
+    "featured": false
+  },
+  {
+    "id": "blog-006",
+    "slug": "when-to-worry-developmental-delays",
+    "title": "Developmental Delays: When to Seek Advice and What to Expect",
+    "excerpt": "Most developmental variation is completely normal, but knowing the red flags can help parents act quickly if specialist support is needed. A compassionate guide.",
+    "content": "placeholder",
+    "category": "Health",
+    "tags": ["developmental delay", "health", "specialist", "guidance"],
+    "author": {
+      "name": "Dr. Sarah Mitchell",
+      "role": "Paediatric Specialist",
+      "avatar": "/images/authors/sarah-mitchell.png"
+    },
+    "publishedAt": "2026-01-05T09:00:00Z",
+    "readingTime": 9,
+    "image": "/images/blogs/developmental-delays.png",
+    "featured": true
+  }
+]

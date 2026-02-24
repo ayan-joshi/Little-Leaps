@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" fill="none" role="img" aria-label="Blog article placeholder">
+  <defs>
+    <linearGradient id="bbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eff9ff"/>
+      <stop offset="100%" stop-color="#f0fdf5"/>
+    </linearGradient>
+    <linearGradient id="spine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#06a7eb"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="260" fill="url(#bbg)"/>
+
+  <!-- Background circles -->
+  <circle cx="350" cy="50"  r="70" fill="#b7e6ff" opacity="0.15"/>
+  <circle cx="50"  cy="210" r="55" fill="#bbf7d2" opacity="0.15"/>
+
+  <!-- Open book left page -->
+  <path d="M 110 60 Q 110 50 120 50 L 200 55 L 200 210 L 120 215 Q 110 215 110 205 Z"
+        fill="white" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.07))"/>
+
+  <!-- Open book right page -->
+  <path d="M 290 60 Q 290 50 280 50 L 200 55 L 200 210 L 280 215 Q 290 215 290 205 Z"
+        fill="white" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.07))"/>
+
+  <!-- Book spine -->
+  <rect x="196" y="50" width="8" height="165" rx="3" fill="url(#spine)" opacity="0.6"/>
+
+  <!-- Left page content lines -->
+  <rect x="126" y="76"  width="62" height="7" rx="3.5" fill="#e0f2fe"/>
+  <rect x="126" y="91"  width="56" height="5" rx="2.5" fill="#f0f9ff"/>
+  <rect x="126" y="102" width="60" height="5" rx="2.5" fill="#f0f9ff"/>
+  <rect x="126" y="113" width="52" height="5" rx="2.5" fill="#f0f9ff"/>
+  <rect x="126" y="128" width="58" height="5" rx="2.5" fill="#f0f9ff"/>
+  <rect x="126" y="139" width="48" height="5" rx="2.5" fill="#f0f9ff"/>
+  <!-- Left image block -->
+  <rect x="126" y="155" width="62" height="38" rx="6" fill="#e0f2fe"/>
+  <path d="M 143 165 L 150 175 L 157 168 L 164 180 L 170 174 L 170 188 L 143 188 Z"
+        fill="#7dd3fc" opacity="0.7"/>
+  <circle cx="139" cy="163" r="5" fill="#38bdf8" opacity="0.6"/>
+
+  <!-- Right page content lines -->
+  <rect x="214" y="76"  width="65" height="7" rx="3.5" fill="#dcfce7"/>
+  <rect x="214" y="91"  width="58" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="102" width="62" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="113" width="50" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="128" width="60" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="139" width="45" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="155" width="62" height="5" rx="2.5" fill="#f0fdf4"/>
+  <rect x="214" y="166" width="55" height="5" rx="2.5" fill="#f0fdf4"/>
+
+  <!-- Bookmark ribbon -->
+  <path d="M 268 50 L 268 90 L 275 82 L 282 90 L 282 50 Z"
+        fill="#ffc2d4" opacity="0.8"/>
+
+  <!-- Decorative elements -->
+  <path d="M 80 80 L 83 72 L 86 80 L 94 80 L 88 85 L 90 93 L 83 88 L 76 93 L 78 85 L 72 80 Z"
+        fill="#fde047" opacity="0.55"/>
+  <circle cx="318" cy="195" r="6" fill="#c4b5fd" opacity="0.5"/>
+  <circle cx="90"  cy="175" r="4" fill="#ffc2d4" opacity="0.5"/>
+</svg>

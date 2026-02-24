@@ -1,0 +1,178 @@
+[
+  {
+    "id": "award-001",
+    "slug": "first-smile-award",
+    "title": "First Smile Award",
+    "category": "Social & Emotional",
+    "ageRange": "0-3 months",
+    "price": 24.99,
+    "originalPrice": 34.99,
+    "badge": "Bestseller",
+    "description": "Celebrate baby's first heartwarming smile with this beautiful keepsake certificate and medal set. A moment to treasure forever.",
+    "features": [
+      "Premium foil-printed certificate",
+      "Soft silicone medal",
+      "Gift-ready packaging",
+      "Personalization included"
+    ],
+    "image": "/images/awards/first-smile.png",
+    "rating": 4.9,
+    "reviewCount": 312,
+    "inStock": true,
+    "tags": ["social", "emotional", "newborn", "milestone"]
+  },
+  {
+    "id": "award-002",
+    "slug": "tummy-time-champion",
+    "title": "Tummy Time Champion",
+    "category": "Gross Motor",
+    "ageRange": "1-4 months",
+    "price": 19.99,
+    "originalPrice": 26.99,
+    "badge": "New",
+    "description": "Recognise your little one's hard work during tummy time sessions. This award comes with a progress tracker and achievement badge.",
+    "features": [
+      "Certificate of achievement",
+      "Iron-on progress badge",
+      "Tummy time tracker sheet",
+      "Milestone sticker pack"
+    ],
+    "image": "/images/awards/tummy-time.png",
+    "rating": 4.8,
+    "reviewCount": 189,
+    "inStock": true,
+    "tags": ["gross motor", "physical", "strength", "tummy time"]
+  },
+  {
+    "id": "award-003",
+    "slug": "first-roll-trophy",
+    "title": "First Roll Trophy",
+    "category": "Gross Motor",
+    "ageRange": "3-6 months",
+    "price": 29.99,
+    "originalPrice": 39.99,
+    "badge": null,
+    "description": "When baby masters rolling over, it's a BIG deal! Celebrate this gross motor milestone with our adorable rolling star trophy.",
+    "features": [
+      "Engraved resin trophy",
+      "Photo frame insert",
+      "Milestone card set",
+      "Personalised date plaque"
+    ],
+    "image": "/images/awards/first-roll.png",
+    "rating": 4.7,
+    "reviewCount": 254,
+    "inStock": true,
+    "tags": ["gross motor", "rolling", "physical development"]
+  },
+  {
+    "id": "award-004",
+    "slug": "first-word-medal",
+    "title": "First Word Medal",
+    "category": "Language",
+    "ageRange": "9-15 months",
+    "price": 22.99,
+    "originalPrice": null,
+    "badge": "Popular",
+    "description": "Mama, Dada, or maybe something totally unique — baby's first word deserves a gold medal! Capture the moment forever.",
+    "features": [
+      "Gold-finish medal",
+      "Word keepsake card",
+      "Decorative gift box",
+      "Write-in first word panel"
+    ],
+    "image": "/images/awards/first-word.png",
+    "rating": 4.9,
+    "reviewCount": 421,
+    "inStock": true,
+    "tags": ["language", "speech", "communication", "milestone"]
+  },
+  {
+    "id": "award-005",
+    "slug": "standing-star-award",
+    "title": "Standing Star Award",
+    "category": "Gross Motor",
+    "ageRange": "8-12 months",
+    "price": 27.99,
+    "originalPrice": 35.99,
+    "badge": null,
+    "description": "Standing up for the first time is a monumental milestone! This star-shaped award celebrates baby's incredible strength and determination.",
+    "features": [
+      "Star-shaped plaque",
+      "Premium certificate",
+      "Milestone photo props",
+      "Keepsake memory card"
+    ],
+    "image": "/images/awards/standing-star.png",
+    "rating": 4.6,
+    "reviewCount": 178,
+    "inStock": true,
+    "tags": ["gross motor", "standing", "balance", "physical"]
+  },
+  {
+    "id": "award-006",
+    "slug": "first-steps-trophy",
+    "title": "First Steps Trophy",
+    "category": "Gross Motor",
+    "ageRange": "10-15 months",
+    "price": 34.99,
+    "originalPrice": 44.99,
+    "badge": "Bestseller",
+    "description": "The most exciting milestone of all — first steps! This premium trophy set includes a foot casting kit to preserve those tiny feet.",
+    "features": [
+      "Premium engraved trophy",
+      "Foot casting kit",
+      "Celebration certificate",
+      "Personalised name plate"
+    ],
+    "image": "/images/awards/first-steps.png",
+    "rating": 4.9,
+    "reviewCount": 563,
+    "inStock": true,
+    "tags": ["gross motor", "walking", "first steps", "milestone"]
+  },
+  {
+    "id": "award-007",
+    "slug": "peek-a-boo-pro",
+    "title": "Peek-a-Boo Pro Badge",
+    "category": "Cognitive",
+    "ageRange": "6-10 months",
+    "price": 14.99,
+    "originalPrice": null,
+    "badge": "Fun Pick",
+    "description": "Object permanence is a cognitive leap! Celebrate baby's peek-a-boo mastery with this fun and colourful badge set.",
+    "features": [
+      "Set of 3 enamel badges",
+      "Cognitive milestone card",
+      "Playful gift pouch",
+      "Game idea booklet"
+    ],
+    "image": "/images/awards/peek-a-boo.png",
+    "rating": 4.7,
+    "reviewCount": 203,
+    "inStock": true,
+    "tags": ["cognitive", "object permanence", "play", "development"]
+  },
+  {
+    "id": "award-008",
+    "slug": "self-feeding-superstar",
+    "title": "Self-Feeding Superstar",
+    "category": "Fine Motor",
+    "ageRange": "12-18 months",
+    "price": 18.99,
+    "originalPrice": 24.99,
+    "badge": null,
+    "description": "Learning to self-feed is messy, brave, and wonderful! Reward this fine motor triumph with our superstar set.",
+    "features": [
+      "Waterproof certificate",
+      "Chef-hat plush toy",
+      "Milestone sticker sheet",
+      "Baby cookbook printable"
+    ],
+    "image": "/images/awards/self-feeding.png",
+    "rating": 4.5,
+    "reviewCount": 147,
+    "inStock": false,
+    "tags": ["fine motor", "feeding", "independence", "skills"]
+  }
+]
