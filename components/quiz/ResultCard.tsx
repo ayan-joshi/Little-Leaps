@@ -89,91 +89,122 @@ export default function ResultCard({ result, babyAge, email, onRetake }: ResultC
         </div>
       </div>
 
-      {/* Category breakdown */}
+      {/* Category breakdown — locked */}
       {result.categoryScores.length > 0 && (
-        <div className="card-base p-5 sm:p-6">
-          <h3 className="font-bold text-gray-800 mb-4 text-sm uppercase tracking-wide">
-            Category Breakdown
-          </h3>
-          <div className="flex flex-col gap-4" role="list" aria-label="Development category scores">
-            {result.categoryScores.map((cat) => (
-              <div key={cat.category} role="listitem">
-                <div className="flex justify-between items-center mb-1.5 text-sm">
-                  <span className="font-medium text-gray-700">{cat.categoryLabel}</span>
-                  <span className="font-bold text-gray-800 tabular-nums">
-                    {cat.percentage}%
-                  </span>
+        <div className="card-base p-5 sm:p-6 relative">
+          <div className="blur-sm pointer-events-none select-none">
+            <h3 className="font-bold text-gray-800 mb-4 text-sm uppercase tracking-wide">
+              Category Breakdown
+            </h3>
+            <div className="flex flex-col gap-4" aria-hidden="true">
+              {result.categoryScores.map((cat) => (
+                <div key={cat.category}>
+                  <div className="flex justify-between items-center mb-1.5 text-sm">
+                    <span className="font-medium text-gray-700">{cat.categoryLabel}</span>
+                    <span className="font-bold text-gray-800 tabular-nums">
+                      {cat.percentage}%
+                    </span>
+                  </div>
+                  <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-700"
+                      style={{
+                        width: `${cat.percentage}%`,
+                        background: `linear-gradient(to right, #f93d6f, #8b5cf6)`,
+                      }}
+                    />
+                  </div>
                 </div>
-                <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden"
-                     role="progressbar"
-                     aria-valuenow={cat.percentage}
-                     aria-valuemin={0}
-                     aria-valuemax={100}
-                     aria-label={`${cat.categoryLabel}: ${cat.percentage}%`}>
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{
-                      width: `${cat.percentage}%`,
-                      background: `linear-gradient(to right, #f93d6f, #8b5cf6)`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center
+                          bg-white/70 rounded-2xl gap-2">
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none"
+                 aria-hidden="true">
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" strokeWidth="1.8"
+                    strokeLinecap="round"/>
+            </svg>
+            <p className="text-sm font-semibold text-gray-600">Full report sent to your email</p>
           </div>
         </div>
       )}
 
-      {/* Strengths */}
+      {/* Strengths — locked */}
       {result.highlights.length > 0 && (
-        <div className="card-base p-5 sm:p-6">
-          <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
-            <svg className="w-4 h-4 text-mint-500 shrink-0" viewBox="0 0 16 16" fill="currentColor"
+        <div className="card-base p-5 sm:p-6 relative">
+          <div className="blur-sm pointer-events-none select-none">
+            <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
+              <svg className="w-4 h-4 text-mint-500 shrink-0" viewBox="0 0 16 16" fill="currentColor"
+                   aria-hidden="true">
+                <path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.7l-3.7 1.9.7-4.1-3-2.9 4.1-.7z"/>
+              </svg>
+              Strengths
+            </h3>
+            <ul className="flex flex-col gap-2" aria-hidden="true">
+              {result.highlights.map((h, i) => (
+                <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-mint-500 mt-0.5 shrink-0" viewBox="0 0 16 16"
+                       fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="7" fill="#dcfce7"/>
+                    <path d="M5 8l2 2 4-4" stroke="#22c55e" strokeWidth="1.5"
+                          strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center
+                          bg-white/70 rounded-2xl gap-2">
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none"
                  aria-hidden="true">
-              <path d="M8 1l1.9 3.9L14 5.6l-3 2.9.7 4.1L8 10.7l-3.7 1.9.7-4.1-3-2.9 4.1-.7z"/>
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" strokeWidth="1.8"
+                    strokeLinecap="round"/>
             </svg>
-            Strengths
-          </h3>
-          <ul className="flex flex-col gap-2" aria-label="Baby's developmental strengths">
-            {result.highlights.map((h, i) => (
-              <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
-                <svg className="w-4 h-4 text-mint-500 mt-0.5 shrink-0" viewBox="0 0 16 16"
-                     fill="none" aria-hidden="true">
-                  <circle cx="8" cy="8" r="7" fill="#dcfce7"/>
-                  <path d="M5 8l2 2 4-4" stroke="#22c55e" strokeWidth="1.5"
-                        strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {h}
-              </li>
-            ))}
-          </ul>
+            <p className="text-sm font-semibold text-gray-600">Full report sent to your email</p>
+          </div>
         </div>
       )}
 
-      {/* Recommendations */}
+      {/* Recommendations — locked */}
       {result.recommendations.length > 0 && (
-        <div className="card-base p-5 sm:p-6">
-          <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
-            <svg className="w-4 h-4 text-lavender-500 shrink-0" viewBox="0 0 16 16" fill="none"
+        <div className="card-base p-5 sm:p-6 relative">
+          <div className="blur-sm pointer-events-none select-none">
+            <h3 className="font-bold text-gray-800 mb-3 flex items-center gap-2 text-sm uppercase tracking-wide">
+              <svg className="w-4 h-4 text-lavender-500 shrink-0" viewBox="0 0 16 16" fill="none"
+                   aria-hidden="true">
+                <circle cx="8" cy="8" r="7" stroke="#8b5cf6" strokeWidth="1.5"/>
+                <path d="M8 5v3.5M8 11v.5" stroke="#8b5cf6" strokeWidth="1.5"
+                      strokeLinecap="round"/>
+              </svg>
+              Tips for Growth
+            </h3>
+            <ul className="flex flex-col gap-2" aria-hidden="true">
+              {result.recommendations.map((r, i) => (
+                <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
+                  <svg className="w-4 h-4 text-lavender-400 mt-0.5 shrink-0" viewBox="0 0 16 16"
+                       fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#a78bfa" strokeWidth="1.5"
+                          strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                  {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center
+                          bg-white/70 rounded-2xl gap-2">
+            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none"
                  aria-hidden="true">
-              <circle cx="8" cy="8" r="7" stroke="#8b5cf6" strokeWidth="1.5"/>
-              <path d="M8 5v3.5M8 11v.5" stroke="#8b5cf6" strokeWidth="1.5"
+              <rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" strokeWidth="1.8"
                     strokeLinecap="round"/>
             </svg>
-            Tips for Growth
-          </h3>
-          <ul className="flex flex-col gap-2" aria-label="Development tips">
-            {result.recommendations.map((r, i) => (
-              <li key={i} className="text-sm text-gray-600 flex items-start gap-2.5">
-                <svg className="w-4 h-4 text-lavender-400 mt-0.5 shrink-0" viewBox="0 0 16 16"
-                     fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="#a78bfa" strokeWidth="1.5"
-                        strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                {r}
-              </li>
-            ))}
-          </ul>
+            <p className="text-sm font-semibold text-gray-600">Full report sent to your email</p>
+          </div>
         </div>
       )}
 

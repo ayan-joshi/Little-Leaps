@@ -61,7 +61,7 @@ function MailIcon() {
 }
 
 const features = [
-  { Icon: AwardIcon, title: 'Milestone Awards',    desc: 'Beautiful personalised certificates and trophies for every developmental first.' },
+  { Icon: AwardIcon, title: 'Little Leaps Baby Awards', desc: 'Beautiful personalised certificates and trophies for every developmental first.' },
   { Icon: QuizIcon,  title: 'Free Milestone Quiz', desc: 'Expert-designed quiz tailored to your baby\'s exact age — instant, detailed results.' },
   { Icon: BlogIcon,  title: 'Expert Blog',         desc: 'Evidence-based articles from paediatricians and child development specialists.' },
   { Icon: MailIcon,  title: 'Email Your Results',  desc: 'Receive a detailed development report straight to your inbox after the quiz.' },
@@ -132,6 +132,62 @@ export default function HomePage() {
                 <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Awards CTA banner */}
+      <section className="page-padding py-12">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-amber-400 to-yellow-300
+                        rounded-3xl p-8 sm:p-12 grid grid-cols-1 sm:grid-cols-2 gap-8
+                        items-center text-white">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+              Little Leaps Baby Awards
+            </h2>
+            <p className="text-white/85 mb-6 text-sm sm:text-base">
+              Our experts test hundreds of baby products every year. Discover the Gold and
+              Silver Award winners across diapers, strollers, skincare, feeding, monitors,
+              and toys.
+            </p>
+            <Link href="/awards">
+              <button className="bg-white text-amber-600 font-bold px-8 py-4 rounded-full
+                                 text-sm sm:text-base hover:bg-amber-50 transition-colors
+                                 tap-target focus:outline-none focus-visible:ring-2
+                                 focus-visible:ring-white focus-visible:ring-offset-2
+                                 focus-visible:ring-offset-amber-400">
+                See the Winners &rarr;
+              </button>
+            </Link>
+          </div>
+          <div className="hidden sm:flex items-center justify-center">
+            <svg viewBox="0 0 160 140" fill="none" className="w-44 h-auto" aria-hidden="true">
+              {/* Trophy cup */}
+              <path d="M52 36h56v36a28 28 0 01-56 0V36z"
+                    fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5"
+                    strokeLinejoin="round"/>
+              {/* Handles */}
+              <path d="M52 48H38a12 12 0 000 24h14"
+                    stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round"/>
+              <path d="M108 48h14a12 12 0 010 24h-14"
+                    stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round"/>
+              {/* Stem */}
+              <path d="M80 100v16" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round"/>
+              {/* Base */}
+              <rect x="60" y="116" width="40" height="8" rx="4"
+                    fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" strokeWidth="2"/>
+              {/* Star on cup */}
+              <path d="M80 50l3.1 9.5H93l-8 5.8 3 9.5-8-5.8-8 5.8 3-9.5-8-5.8h9.9z"
+                    fill="rgba(255,255,255,0.55)"/>
+              {/* Sparkles */}
+              <circle cx="34" cy="36" r="3" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="128" cy="44" r="2" fill="rgba(255,255,255,0.4)"/>
+              <circle cx="140" cy="28" r="3.5" fill="rgba(255,255,255,0.3)"/>
+              <circle cx="22" cy="60" r="2.5" fill="rgba(255,255,255,0.3)"/>
+              <path d="M120 20l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="rgba(255,255,255,0.45)"/>
+              <path d="M26 26l1.5 3.5 3.5 1.5-3.5 1.5-1.5 3.5-1.5-3.5-3.5-1.5 3.5-1.5z"
+                    fill="rgba(255,255,255,0.35)"/>
+            </svg>
           </div>
         </div>
       </section>

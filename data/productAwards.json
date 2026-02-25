@@ -1,0 +1,88 @@
+{
+  "2026": {
+    "Diapers": {
+      "gold": {
+        "name": "Pure Protection Newborn Diapers",
+        "brand": "Pampers",
+        "image": "/images/award-placeholder.svg",
+        "description": "Plant-based liners with no chlorine bleaching, fragrances, or parabens. Exceptional softness and up to 12-hour leak protection make these the clear choice for sensitive newborn skin."
+      },
+      "silver": {
+        "name": "Natural Care Sensitive Diapers",
+        "brand": "Huggies",
+        "image": "/images/award-placeholder.svg",
+        "description": "Triple-layer absorbency with a dermatologist-tested, hypoallergenic inner liner. Reliable fit with a wetness indicator stripe — a solid all-rounder at an accessible price point."
+      }
+    },
+    "Baby Skincare": {
+      "gold": {
+        "name": "Daily Moisture Baby Lotion",
+        "brand": "Aveeno Baby",
+        "image": "/images/award-placeholder.svg",
+        "description": "Colloidal oatmeal formula clinically shown to improve skin moisture in 24 hours. Fragrance-free, steroid-free, and gentle enough for eczema-prone skin from day one."
+      },
+      "silver": {
+        "name": "Baby Moisturising Lotion",
+        "brand": "CeraVe",
+        "image": "/images/award-placeholder.svg",
+        "description": "Developed with dermatologists, this lotion delivers three essential ceramides and hyaluronic acid to strengthen the skin barrier. Fragrance-free and non-comedogenic."
+      }
+    },
+    "Strollers": {
+      "gold": {
+        "name": "Vista V3 Pram System",
+        "brand": "UPPAbaby",
+        "image": "/images/award-placeholder.svg",
+        "description": "An industry-leading convertible pram that grows from single to double with no extra adapters. The all-day suspension, oversized bassinet, and intuitive fold make it the benchmark for new parents."
+      },
+      "silver": {
+        "name": "Fox 5 Pushchair",
+        "brand": "Bugaboo",
+        "image": "/images/award-placeholder.svg",
+        "description": "Featherlight self-standing fold, all-wheel suspension, and a reversible seat that lasts from newborn to toddler. Exceptional off-road performance with a refined urban aesthetic."
+      }
+    },
+    "Feeding Products": {
+      "gold": {
+        "name": "Easy Start Anti-Colic Bottle",
+        "brand": "MAM",
+        "image": "/images/award-placeholder.svg",
+        "description": "Award-winning self-sterilising bottle with a patented vented base that reduces colic symptoms by 80%. The flat, ultra-thin teat is accepted by 94% of breastfed babies in independent trials."
+      },
+      "silver": {
+        "name": "Natural Response Baby Bottle",
+        "brand": "Philips Avent",
+        "image": "/images/award-placeholder.svg",
+        "description": "Responsive flow nipple lets babies control the flow of milk, mirroring breastfeeding. Wide neck for easy cleaning, BPA-free construction, and compatible with Philips breast pumps."
+      }
+    },
+    "Baby Monitors": {
+      "gold": {
+        "name": "Pro Smart Baby Monitor",
+        "brand": "Nanit",
+        "image": "/images/award-placeholder.svg",
+        "description": "Crystal-clear 1080p overhead camera with computer-vision sleep tracking and breathing motion monitoring. The app provides actionable insights on sleep patterns without wearables."
+      },
+      "silver": {
+        "name": "Halo+ Overhead Video Monitor",
+        "brand": "Motorola",
+        "image": "/images/award-placeholder.svg",
+        "description": "Motorised rotating lens gives a full overhead view plus a 360° pan. Built-in projector, two-way audio, and room temperature sensor in one sleek over-the-crib unit."
+      }
+    },
+    "Toys & Development": {
+      "gold": {
+        "name": "Explore & More Activity Gym",
+        "brand": "Skip Hop",
+        "image": "/images/award-placeholder.svg",
+        "description": "Folds flat in seconds and converts to a take-along play mat. Multi-stage play encourages tummy time, reaching, and sitting, with age-appropriate toys that attach to any of the three arches."
+      },
+      "silver": {
+        "name": "Smooth Moves Sloth Linkimal",
+        "brand": "Fisher-Price",
+        "image": "/images/award-placeholder.svg",
+        "description": "Interactive plush with lights, music, and motion that syncs with other Linkimals toys. Introduces early concepts like colours and counting through cause-and-effect play from 9 months."
+      }
+    }
+  }
+}

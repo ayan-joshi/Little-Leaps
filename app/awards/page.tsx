@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
-import awardsData from '@/data/awards.json';
-import type { Award } from '@/types';
-import AwardCard from '@/components/awards/AwardCard';
+import productAwardsData from '@/data/productAwards.json';
+import type { ProductAwardsData } from '@/types';
+import AwardsClient from '@/components/awards/AwardsClient';
 
 export const metadata: Metadata = {
-  title: 'Milestone Awards',
+  title: 'Little Leaps Baby Awards',
   description:
-    'Shop beautiful baby milestone awards, personalised certificates, medals, and trophies for every developmental first — from first smile to first steps.',
+    'Discover the Little Leaps Baby Awards — Gold and Silver winners selected by our expert team across Diapers, Strollers, Baby Skincare, Feeding Products, Baby Monitors, and Toys.',
 };
 
-const awards = awardsData as Award[];
+const data = productAwardsData as ProductAwardsData;
 
 export default function AwardsPage() {
   return (
@@ -32,37 +32,23 @@ export default function AwardsPage() {
             </div>
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-3">
-            Baby Milestone Awards
+            Little Leaps Baby Awards
           </h1>
           <p className="text-gray-500 max-w-xl mx-auto">
-            Celebrate every precious first with a personalised award your family will
-            treasure forever.
+            Our expert team tests hundreds of baby products each year. These are the Gold and
+            Silver Award winners — the very best across every essential category.
           </p>
         </div>
 
-        {/* Stats bar */}
-        <div className="flex items-center justify-between mb-8 text-sm text-gray-500">
-          <p>
-            <span className="font-bold text-gray-700">{awards.length}</span> awards
-          </p>
-          <p className="text-xs bg-mint-50 text-mint-700 font-semibold px-3 py-1 rounded-full">
-            Free UK delivery on orders over £40
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {awards.map((award) => (
-            <AwardCard key={award.id} award={award} />
-          ))}
-        </div>
+        {/* Awards grid with dropdowns */}
+        <AwardsClient data={data} />
 
         {/* Bottom CTA */}
         <div className="mt-16 text-center bg-gradient-to-r from-lavender-50 to-blush-50
                         rounded-3xl p-8">
-          <p className="text-gray-700 font-semibold mb-2">Not sure which award to get?</p>
+          <p className="text-gray-700 font-semibold mb-2">Wondering where your baby is at?</p>
           <p className="text-gray-500 text-sm mb-5">
-            Take our free milestone quiz and we&apos;ll recommend the perfect award for your
+            Take our free milestone quiz and get a personalised development report for your
             baby&apos;s current stage.
           </p>
           <a href="/quiz"

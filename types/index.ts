@@ -155,3 +155,20 @@ export interface ApiError {
 }
 
 export type ApiResponse<T = null> = ApiSuccess<T> | ApiError;
+
+// ─── Product Awards Types ─────────────────────────────────────────────────────
+
+export interface ProductAwardWinner {
+  name: string;
+  brand: string;
+  image: string;
+  description: string;
+}
+
+export interface ProductAwardCategory {
+  gold: ProductAwardWinner;
+  silver: ProductAwardWinner;
+}
+
+// Record<year, Record<categoryName, ProductAwardCategory>>
+export type ProductAwardsData = Record<string, Record<string, ProductAwardCategory>>;

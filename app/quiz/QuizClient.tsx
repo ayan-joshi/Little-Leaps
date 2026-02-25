@@ -9,7 +9,7 @@ import Button from '@/components/ui/Button';
 import { getQuestionsForAge } from '@/lib/quizLogic';
 import type { QuizAnswer, QuizQuestion, QuizResult } from '@/types';
 
-type QuizStep = 'age' | 'email' | 'questions' | 'submitting' | 'result' | 'error';
+type QuizStep = 'age' | 'questions' | 'email' | 'submitting' | 'result' | 'error';
 
 // ─── Email capture step ────────────────────────────────────────────────────────
 
@@ -34,10 +34,10 @@ function EmailStep({ onSubmit }: { onSubmit: (email: string) => void }) {
       </div>
 
       <h2 className="text-xl font-bold text-gray-800 text-center mb-2">
-        Where should we send your results?
+        Your results are ready!
       </h2>
       <p className="text-sm text-gray-500 text-center mb-6">
-        Enter your email to receive a detailed development report after the quiz. No spam — ever.
+        Enter your email to receive the full development report. No spam — ever.
       </p>
 
       <form
@@ -75,7 +75,7 @@ function EmailStep({ onSubmit }: { onSubmit: (email: string) => void }) {
           )}
         </div>
         <Button type="submit" size="lg" disabled={!isValid} className="w-full">
-          Continue to Quiz
+          Get My Full Report
           <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
                   strokeLinecap="round" strokeLinejoin="round"/>
@@ -144,18 +144,36 @@ export default function QuizClient() {
   const [result, setResult]           = useState<QuizResult | null>(null);
   const [errorMsg, setErrorMsg]       = useState('');
 
-  // Age selected → filter questions, move to email step
+  // Age selected → filter questions, begin quiz immediately
   const handleAgeSelect = useCallback((age: number) => {
     setBabyAge(age);
     setQuestions(getQuestionsForAge(age));
-    setStep('email');
-  }, []);
-
-  // Email captured → begin quiz
-  const handleEmailSubmit = useCallback((submitted: string) => {
-    setEmail(submitted);
     setStep('questions');
   }, []);
+
+  // Email captured → call API → show results
+  const handleEmailSubmit = useCallback(async (submitted: string) => {
+    setEmail(submitted);
+    setStep('submitting');
+    try {
+      const res  = await fetch('/api/submit-quiz', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: submitted, babyAge, answers }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        setErrorMsg(data.error ?? 'Something went wrong. Please try again.');
+        setStep('error');
+        return;
+      }
+      setResult(data.data.result);
+      setStep('result');
+    } catch {
+      setErrorMsg('Network error. Please check your connection and try again.');
+      setStep('error');
+    }
+  }, [babyAge, answers]);
 
   // Option selected for current question
   const handleOptionSelect = useCallback(
@@ -187,28 +205,10 @@ export default function QuizClient() {
     setSelectedValue(answers.find((a) => a.questionId === prevQ.id)?.selectedValue ?? null);
   }, [currentIndex, questions, answers]);
 
-  // Submit answers → API → show results
-  const handleFinish = useCallback(async () => {
-    setStep('submitting');
-    try {
-      const res  = await fetch('/api/submit-quiz', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, babyAge, answers }),
-      });
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        setErrorMsg(data.error ?? 'Something went wrong. Please try again.');
-        setStep('error');
-        return;
-      }
-      setResult(data.data.result);
-      setStep('result');
-    } catch {
-      setErrorMsg('Network error. Please check your connection and try again.');
-      setStep('error');
-    }
-  }, [email, babyAge, answers]);
+  // All questions answered → advance to email capture
+  const handleFinish = useCallback(() => {
+    setStep('email');
+  }, []);
 
   // Full reset
   const handleRetake = useCallback(() => {
@@ -228,7 +228,7 @@ export default function QuizClient() {
   if (step === 'age')        return <AgeSelector onSelect={handleAgeSelect} />;
   if (step === 'email')      return <EmailStep onSubmit={handleEmailSubmit} />;
   if (step === 'submitting') return <SubmittingScreen count={answers.length} />;
-  if (step === 'error')      return <ErrorScreen message={errorMsg} onRetry={() => setStep('questions')} />;
+  if (step === 'error')      return <ErrorScreen message={errorMsg} onRetry={() => setStep('email')} />;
   if (step === 'result' && result) return <ResultCard result={result} babyAge={babyAge} email={email} onRetake={handleRetake} />;
 
   // ── Questions step ────────────────────────────────────────────────────────

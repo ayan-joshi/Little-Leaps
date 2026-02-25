@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const footerLinks = {
   Explore: [
-    { href: '/awards', label: 'Awards Shop' },
+    { href: '/awards', label: 'Baby Awards' },
     { href: '/blogs',  label: 'Blog' },
     { href: '/quiz',   label: 'Milestone Quiz' },
   ],
