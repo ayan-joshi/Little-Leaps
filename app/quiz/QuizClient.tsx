@@ -6,82 +6,69 @@ import QuestionCard from '@/components/quiz/QuestionCard';
 import ProgressBar from '@/components/quiz/ProgressBar';
 import ResultCard from '@/components/quiz/ResultCard';
 import Button from '@/components/ui/Button';
-import { getQuestionsForAge } from '@/lib/quizLogic';
+import { getQuestionsForAge, calculateQuizResult } from '@/lib/quizLogic';
 import type { QuizAnswer, QuizQuestion, QuizResult } from '@/types';
 
-type QuizStep = 'age' | 'questions' | 'email' | 'submitting' | 'result' | 'error';
+type QuizStep = 'age' | 'questions' | 'result' | 'email' | 'submitting' | 'sent' | 'error';
 
 // ─── Email capture step ────────────────────────────────────────────────────────
 
 function EmailStep({ onSubmit }: { onSubmit: (email: string) => void }) {
-  const [email, setEmail]   = useState('');
+  const [email, setEmail]     = useState('');
   const [touched, setTouched] = useState(false);
   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   return (
-    <div className="card-base p-6 sm:p-8 w-full max-w-xl mx-auto">
-      {/* Mail icon — inline SVG, no emoji */}
-      <div className="flex justify-center mb-4">
-        <div className="w-14 h-14 rounded-full bg-blush-50 flex items-center justify-center">
-          <svg className="w-7 h-7 text-blush-500" viewBox="0 0 24 24" fill="none"
-               aria-hidden="true">
-            <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor"
-                  strokeWidth="1.8"/>
-            <path d="M2 8l10 6 10-6" stroke="currentColor" strokeWidth="1.8"
-                  strokeLinecap="round"/>
-          </svg>
+    <div className="py-10 sm:py-16">
+      <div className="card-base p-6 sm:p-8 w-full max-w-xl mx-auto">
+        <div className="flex justify-center mb-4">
+          <div className="w-14 h-14 rounded-full bg-blush-50 flex items-center justify-center">
+            <svg className="w-7 h-7 text-blush-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M2 8l10 6 10-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+            </svg>
+          </div>
         </div>
+        <h2 className="text-xl font-bold text-gray-800 text-center mb-2">Your results are ready!</h2>
+        <p className="text-sm text-gray-500 text-center mb-6">
+          Enter your email to receive the full development report. No spam — ever.
+        </p>
+        <form onSubmit={(e) => { e.preventDefault(); if (isValid) onSubmit(email); }}
+              className="flex flex-col gap-4" noValidate>
+          <div>
+            <label htmlFor="quiz-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
+              Email address
+            </label>
+            <input
+              id="quiz-email" type="email" value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              onBlur={() => setTouched(true)}
+              placeholder="your@email.com" autoComplete="email"
+              aria-describedby={touched && !isValid ? 'email-error' : undefined}
+              aria-invalid={touched && !isValid}
+              className={[
+                'w-full rounded-2xl border-2 px-4 py-3 text-sm text-gray-700 placeholder:text-gray-400',
+                'focus:outline-none focus:ring-2 focus:ring-blush-100 transition-colors tap-target',
+                touched && !isValid
+                  ? 'border-blush-400 bg-blush-50'
+                  : 'border-gray-200 bg-white focus:border-blush-400',
+              ].join(' ')}
+            />
+            {touched && !isValid && (
+              <p id="email-error" role="alert" className="text-xs text-blush-500 mt-1.5 ml-1">
+                Please enter a valid email address.
+              </p>
+            )}
+          </div>
+          <Button type="submit" size="lg" disabled={!isValid} className="w-full">
+            Get My Full Report
+            <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
+                    strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Button>
+        </form>
       </div>
-
-      <h2 className="text-xl font-bold text-gray-800 text-center mb-2">
-        Your results are ready!
-      </h2>
-      <p className="text-sm text-gray-500 text-center mb-6">
-        Enter your email to receive the full development report. No spam — ever.
-      </p>
-
-      <form
-        onSubmit={(e) => { e.preventDefault(); if (isValid) onSubmit(email); }}
-        className="flex flex-col gap-4"
-        noValidate
-      >
-        <div>
-          <label htmlFor="quiz-email" className="block text-sm font-semibold text-gray-700 mb-1.5">
-            Email address
-          </label>
-          <input
-            id="quiz-email"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            onBlur={() => setTouched(true)}
-            placeholder="your@email.com"
-            autoComplete="email"
-            aria-describedby={touched && !isValid ? 'email-error' : undefined}
-            aria-invalid={touched && !isValid}
-            className={[
-              'w-full rounded-2xl border-2 px-4 py-3 text-sm text-gray-700 placeholder:text-gray-400',
-              'focus:outline-none focus:ring-2 focus:ring-blush-100 transition-colors tap-target',
-              touched && !isValid
-                ? 'border-blush-400 bg-blush-50'
-                : 'border-gray-200 bg-white focus:border-blush-400',
-            ].join(' ')}
-          />
-          {touched && !isValid && (
-            <p id="email-error" role="alert"
-               className="text-xs text-blush-500 mt-1.5 ml-1">
-              Please enter a valid email address.
-            </p>
-          )}
-        </div>
-        <Button type="submit" size="lg" disabled={!isValid} className="w-full">
-          Get My Full Report
-          <svg className="w-4 h-4 ml-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2"
-                  strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </Button>
-      </form>
     </div>
   );
 }
@@ -90,16 +77,12 @@ function EmailStep({ onSubmit }: { onSubmit: (email: string) => void }) {
 
 function SubmittingScreen({ count }: { count: number }) {
   return (
-    <div className="text-center py-20" aria-live="polite" aria-busy="true">
+    <div className="py-20 text-center" aria-live="polite" aria-busy="true">
       <div className="flex justify-center mb-5">
-        <div className="w-16 h-16 rounded-full bg-lavender-50 flex items-center justify-center
-                        animate-pulse-soft">
-          <svg className="w-8 h-8 text-lavender-500 animate-spin" viewBox="0 0 24 24"
-               fill="none" aria-hidden="true">
-            <circle className="opacity-25" cx="12" cy="12" r="10"
-                    stroke="currentColor" strokeWidth="3"/>
-            <path className="opacity-75" fill="currentColor"
-                  d="M4 12a8 8 0 018-8v8z"/>
+        <div className="w-16 h-16 rounded-full bg-lavender-50 flex items-center justify-center animate-pulse-soft">
+          <svg className="w-8 h-8 text-lavender-500 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3"/>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
           </svg>
         </div>
       </div>
@@ -113,20 +96,20 @@ function SubmittingScreen({ count }: { count: number }) {
 
 function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => void }) {
   return (
-    <div className="card-base p-8 text-center max-w-md mx-auto" role="alert">
-      <div className="flex justify-center mb-4">
-        <div className="w-14 h-14 rounded-full bg-blush-50 flex items-center justify-center">
-          <svg className="w-7 h-7 text-blush-500" viewBox="0 0 24 24" fill="none"
-               aria-hidden="true">
-            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8"/>
-            <path d="M12 7v5M12 16v.5" stroke="currentColor" strokeWidth="2"
-                  strokeLinecap="round"/>
-          </svg>
+    <div className="py-10">
+      <div className="card-base p-8 text-center max-w-md mx-auto" role="alert">
+        <div className="flex justify-center mb-4">
+          <div className="w-14 h-14 rounded-full bg-blush-50 flex items-center justify-center">
+            <svg className="w-7 h-7 text-blush-500" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.8"/>
+              <path d="M12 7v5M12 16v.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+          </div>
         </div>
+        <h2 className="text-xl font-bold text-gray-800 mb-2">Something went wrong</h2>
+        <p className="text-gray-500 mb-6 text-sm">{message}</p>
+        <Button onClick={onRetry}>Try Again</Button>
       </div>
-      <h2 className="text-xl font-bold text-gray-800 mb-2">Something went wrong</h2>
-      <p className="text-gray-500 mb-6 text-sm">{message}</p>
-      <Button onClick={onRetry}>Try Again</Button>
     </div>
   );
 }
@@ -134,24 +117,23 @@ function ErrorScreen({ message, onRetry }: { message: string; onRetry: () => voi
 // ─── Main quiz orchestrator ───────────────────────────────────────────────────
 
 export default function QuizClient() {
-  const [step, setStep]               = useState<QuizStep>('age');
-  const [babyAge, setBabyAge]         = useState<number>(0);
-  const [email, setEmail]             = useState('');
-  const [questions, setQuestions]     = useState<QuizQuestion[]>([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [answers, setAnswers]         = useState<QuizAnswer[]>([]);
-  const [selectedValue, setSelectedValue] = useState<string | null>(null);
-  const [result, setResult]           = useState<QuizResult | null>(null);
-  const [errorMsg, setErrorMsg]       = useState('');
+  const [step, setStep]                     = useState<QuizStep>('age');
+  const [babyAge, setBabyAge]               = useState<number>(0);
+  const [email, setEmail]                   = useState('');
+  const [questions, setQuestions]           = useState<QuizQuestion[]>([]);
+  const [currentIndex, setCurrentIndex]     = useState(0);
+  const [answers, setAnswers]               = useState<QuizAnswer[]>([]);
+  const [selectedValue, setSelectedValue]   = useState<string | null>(null);
+  const [result, setResult]                 = useState<QuizResult | null>(null);
+  const [emailSent, setEmailSent]           = useState(false);
+  const [errorMsg, setErrorMsg]             = useState('');
 
-  // Age selected → filter questions, begin quiz immediately
   const handleAgeSelect = useCallback((age: number) => {
     setBabyAge(age);
     setQuestions(getQuestionsForAge(age));
     setStep('questions');
   }, []);
 
-  // Email captured → call API → show results
   const handleEmailSubmit = useCallback(async (submitted: string) => {
     setEmail(submitted);
     setStep('submitting');
@@ -167,7 +149,7 @@ export default function QuizClient() {
         setStep('error');
         return;
       }
-      setResult(data.data.result);
+      setEmailSent(true);
       setStep('result');
     } catch {
       setErrorMsg('Network error. Please check your connection and try again.');
@@ -175,21 +157,16 @@ export default function QuizClient() {
     }
   }, [babyAge, answers]);
 
-  // Option selected for current question
-  const handleOptionSelect = useCallback(
-    (value: string, score: number) => {
-      setSelectedValue(value);
-      const question = questions[currentIndex];
-      setAnswers((prev) => [
-        ...prev.filter((a) => a.questionId !== question.id),
-        { questionId: question.id, category: question.category,
-          selectedValue: value, score, weight: question.weight },
-      ]);
-    },
-    [questions, currentIndex]
-  );
+  const handleOptionSelect = useCallback((value: string, score: number) => {
+    setSelectedValue(value);
+    const question = questions[currentIndex];
+    setAnswers((prev) => [
+      ...prev.filter((a) => a.questionId !== question.id),
+      { questionId: question.id, category: question.category,
+        selectedValue: value, score, weight: question.weight },
+    ]);
+  }, [questions, currentIndex]);
 
-  // Advance to next question (pre-fill if already answered)
   const handleNext = useCallback(() => {
     if (currentIndex >= questions.length - 1) return;
     const nextQ = questions[currentIndex + 1];
@@ -197,7 +174,6 @@ export default function QuizClient() {
     setSelectedValue(answers.find((a) => a.questionId === nextQ.id)?.selectedValue ?? null);
   }, [currentIndex, questions, answers]);
 
-  // Go back (restore previous answer)
   const handleBack = useCallback(() => {
     if (currentIndex <= 0) return;
     const prevQ = questions[currentIndex - 1];
@@ -205,57 +181,78 @@ export default function QuizClient() {
     setSelectedValue(answers.find((a) => a.questionId === prevQ.id)?.selectedValue ?? null);
   }, [currentIndex, questions, answers]);
 
-  // All questions answered → advance to email capture
   const handleFinish = useCallback(() => {
+    setResult(calculateQuizResult(answers));
+    setStep('result');
+  }, [answers]);
+
+  const handleRequestFullReport = useCallback(() => {
     setStep('email');
   }, []);
 
-  // Full reset
   const handleRetake = useCallback(() => {
-    setStep('age');
-    setBabyAge(0);
-    setEmail('');
-    setQuestions([]);
-    setCurrentIndex(0);
-    setAnswers([]);
-    setSelectedValue(null);
-    setResult(null);
-    setErrorMsg('');
+    setStep('age'); setBabyAge(0); setEmail(''); setQuestions([]);
+    setCurrentIndex(0); setAnswers([]); setSelectedValue(null);
+    setResult(null); setEmailSent(false); setErrorMsg('');
   }, []);
 
-  // ── Render ────────────────────────────────────────────────────────────────
+  // ── Non-questions steps — each gets its own vertical padding ────────────────
 
-  if (step === 'age')        return <AgeSelector onSelect={handleAgeSelect} />;
+  if (step === 'age') return (
+    <div className="py-8 sm:py-14">
+      <AgeSelector onSelect={handleAgeSelect} />
+    </div>
+  );
+
   if (step === 'email')      return <EmailStep onSubmit={handleEmailSubmit} />;
   if (step === 'submitting') return <SubmittingScreen count={answers.length} />;
   if (step === 'error')      return <ErrorScreen message={errorMsg} onRetry={() => setStep('email')} />;
-  if (step === 'result' && result) return <ResultCard result={result} babyAge={babyAge} email={email} onRetake={handleRetake} />;
 
-  // ── Questions step ────────────────────────────────────────────────────────
+  if (step === 'result' && result) return (
+    <div className="py-6 sm:py-12">
+      <ResultCard
+        result={result} babyAge={babyAge} email={email}
+        emailSent={emailSent} onRetake={handleRetake}
+        onGetFullReport={handleRequestFullReport}
+      />
+    </div>
+  );
+
+  // ── Questions step — full viewport height, no page scroll ──────────────────
   if (step === 'questions') {
-    const question          = questions[currentIndex];
-    const isLast            = currentIndex === questions.length - 1;
+    const question           = questions[currentIndex];
+    const isLast             = currentIndex === questions.length - 1;
     const hasAnsweredCurrent = answers.some((a) => a.questionId === question.id);
 
     return (
-      <div className="flex flex-col gap-6 items-center w-full">
-        <div className="w-full max-w-xl mx-auto">
+      <div
+        // 100dvh − 64px header = full available screen area.
+        // sm+ falls back to normal block flow.
+        className="flex flex-col h-[calc(100dvh-4rem)] sm:h-auto sm:gap-6 max-w-xl mx-auto"
+      >
+        {/* ── Progress bar ── shrinks to its natural height, never grows */}
+        <div className="flex-shrink-0 pt-4 pb-1 sm:pt-0 sm:pb-0">
           <ProgressBar current={currentIndex + 1} total={questions.length} />
         </div>
 
-        <QuestionCard
-          question={question}
-          selectedValue={selectedValue}
-          onSelect={handleOptionSelect}
-        />
+        {/* ── Question card ── takes all remaining space; scrollable if the
+            question text + options somehow overflows on a tiny screen        */}
+        <div className="flex-1 overflow-y-auto min-h-0 py-2 sm:py-0">
+          <QuestionCard
+            question={question}
+            selectedValue={selectedValue}
+            onSelect={handleOptionSelect}
+          />
+        </div>
 
-        <div className="flex items-center justify-between w-full max-w-xl mx-auto gap-3">
+        {/* ── Navigation ── pinned to the bottom, never scrolls away */}
+        <div className="flex-shrink-0 flex items-center justify-between gap-3
+                        py-3 sm:py-0 border-t border-gray-100 sm:border-0">
           <Button
-            variant="ghost"
-            size="md"
+            variant="ghost" size="md"
             onClick={handleBack}
             disabled={currentIndex === 0}
-            className="min-w-[80px]"
+            className="min-w-[72px]"
             aria-label="Previous question"
           >
             <svg className="w-4 h-4 mr-1" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -267,8 +264,7 @@ export default function QuizClient() {
 
           {isLast ? (
             <Button
-              size="md"
-              onClick={handleFinish}
+              size="md" onClick={handleFinish}
               disabled={!hasAnsweredCurrent}
               className="flex-1 sm:flex-none sm:min-w-[160px]"
               aria-label="Submit quiz and see results"
@@ -282,8 +278,7 @@ export default function QuizClient() {
             </Button>
           ) : (
             <Button
-              size="md"
-              onClick={handleNext}
+              size="md" onClick={handleNext}
               disabled={!hasAnsweredCurrent}
               className="flex-1 sm:flex-none sm:min-w-[120px]"
               aria-label="Next question"
@@ -297,8 +292,9 @@ export default function QuizClient() {
           )}
         </div>
 
-        <p className="text-xs text-gray-400 text-center">
-          Baby age: {babyAge} months &middot; {answers.length} of {questions.length} answered
+        {/* ── Meta line ── compact, below the nav */}
+        <p className="flex-shrink-0 text-[11px] text-gray-400 text-center pb-3 sm:pb-0">
+          {babyAge}mo &middot; {answers.length}/{questions.length} answered
         </p>
       </div>
     );

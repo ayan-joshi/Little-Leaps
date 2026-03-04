@@ -159,10 +159,13 @@ export type ApiResponse<T = null> = ApiSuccess<T> | ApiError;
 // ─── Product Awards Types ─────────────────────────────────────────────────────
 
 export interface ProductAwardWinner {
+  slug: string;
   name: string;
   brand: string;
   image: string;
   description: string;
+  awardReasons: string[];
+  productUrl: string | null;
 }
 
 export interface ProductAwardCategory {

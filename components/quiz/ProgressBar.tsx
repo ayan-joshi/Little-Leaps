@@ -8,14 +8,14 @@ export default function ProgressBar({ current, total }: ProgressBarProps) {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center mb-2 text-sm">
+      <div className="flex justify-between items-center mb-1.5 text-xs sm:text-sm">
         <span className="font-semibold text-gray-600">
           Question {current} of {total}
         </span>
         <span className="font-bold text-blush-500">{percentage}%</span>
       </div>
       <div
-        className="w-full h-3 bg-gray-100 rounded-full overflow-hidden"
+        className="w-full h-2 sm:h-3 bg-gray-100 rounded-full overflow-hidden"
         role="progressbar"
         aria-valuenow={percentage}
         aria-valuemin={0}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import ScrollToTop from '@/components/layout/ScrollToTop';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://littleleaps.com';
 
@@ -63,7 +64,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col overflow-x-hidden">
+        <ScrollToTop />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -233,16 +233,23 @@ export async function sendQuizResultEmail(params: {
         <!-- ── CTA ────────────────────────────────────────── -->
         <tr>
           <td style="padding:28px 32px 40px;text-align:center;">
-            <p style="margin:0 0 16px;color:#6b7280;font-size:14px;">
-              Celebrate this milestone with a personalised award.
+            <p style="margin:0 0 20px;color:#6b7280;font-size:14px;line-height:1.6;">
+              Know someone who would find this helpful?<br/>Share your result with other parents.
             </p>
-            <a href="${SITE}/awards"
+            <a href="${SITE}/quiz"
                style="display:inline-block;
                       background:linear-gradient(135deg,#f93d6f,#8b5cf6);
                       color:#fff;text-decoration:none;padding:14px 36px;
                       border-radius:9999px;font-weight:700;font-size:15px;
                       letter-spacing:-0.2px;">
-              Browse Milestone Awards
+              Share Report
+            </a>
+            <br/>
+            <a href="${SITE}/quiz"
+               style="display:inline-block;margin-top:14px;
+                      color:#8b5cf6;text-decoration:none;
+                      font-size:14px;font-weight:600;">
+              Retake the quiz &rarr;
             </a>
           </td>
         </tr>

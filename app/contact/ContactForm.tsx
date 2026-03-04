@@ -115,6 +115,7 @@ export default function ContactForm() {
           className={inputClass}
         >
           <option value="">Select a subject…</option>
+          <option>Nominate a product</option>
           <option>Question about an award</option>
           <option>Milestone quiz feedback</option>
           <option>Order / delivery enquiry</option>

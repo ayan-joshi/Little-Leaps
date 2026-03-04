@@ -55,4 +55,13 @@
   .section-padding {
     @apply py-12 sm:py-16 lg:py-20;
   }
+
+  /* Hide scrollbar cross-browser (used for pill nav) */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
