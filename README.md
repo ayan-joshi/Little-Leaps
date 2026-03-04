@@ -1,4 +1,4 @@
-# Little Leaps — Baby Milestone Awards & Development Tracker
+# Little Leaps — Baby Awards & Development Tracker
 
 A production-ready Next.js 14 platform that helps parents track their baby's developmental milestones, receive personalised email reports, and celebrate every first with milestone awards.
 
