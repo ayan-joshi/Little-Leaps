@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import { useState } from 'react';
 
@@ -12,24 +11,37 @@ export default function AgeSelector({ onSelect }: AgeSelectorProps) {
   const [selectedAge, setSelectedAge] = useState<number | null>(null);
 
   return (
-    <div className="flex flex-col items-center gap-8 w-full max-w-lg mx-auto">
+    <div className="flex flex-col items-center gap-6 w-full max-w-lg mx-auto">
 
-      {/* Illustration */}
-      <div className="w-full max-w-xs mx-auto">
-        <Image
-          src="/images/quiz-illustration.svg"
-          alt="Baby milestone quiz illustration"
-          width={360}
-          height={260}
-          className="w-full h-auto"
-          priority
-        />
+      {/* Page heading */}
+      <div className="w-full text-center">
+        {/* Icon badge */}
+        <div className="flex justify-center mb-4">
+          <div className="w-14 h-14 rounded-2xl bg-lavender-50 flex items-center justify-center">
+            <svg className="w-7 h-7 text-lavender-500" viewBox="0 0 32 32" fill="none"
+                 aria-hidden="true">
+              <rect x="6" y="8" width="20" height="22" rx="4" stroke="currentColor"
+                    strokeWidth="1.8"/>
+              <path d="M12 16h8M12 20h6M12 24h4" stroke="currentColor" strokeWidth="1.8"
+                    strokeLinecap="round"/>
+              <rect x="11" y="5" width="10" height="6" rx="3" fill="#ede9fe"
+                    stroke="currentColor" strokeWidth="1.5"/>
+            </svg>
+          </div>
+        </div>
+
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-800 mb-2">
+          Free Baby Milestone Quiz
+        </h1>
+        <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-sm mx-auto">
+          Find out how your baby is developing across 5 key areas — takes under 3 minutes.
+        </p>
       </div>
 
-      <div className="text-center -mt-2">
-        <h2 className="text-2xl font-bold text-gray-800">How old is your baby?</h2>
-        <p className="text-gray-500 mt-2 text-sm">
-          We&apos;ll tailor the quiz to your baby&apos;s age so every question is relevant.
+      <div className="w-full text-center">
+        <h2 className="text-base font-bold text-gray-700">How old is your baby?</h2>
+        <p className="text-gray-400 mt-1 text-sm">
+          We&apos;ll tailor every question to your baby&apos;s exact age.
         </p>
       </div>
 
